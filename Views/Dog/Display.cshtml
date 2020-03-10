@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WhoLetDerHundOut.Models.Dog>
+@{
+   
+}
+
+<head>
+    <title>Doggo Display</title>
+</head>
+<body>
+    <div> 
+        <table class="table table-bordered row align-items-center justify-content-center table-striped table-hover">
+            <tr class="text-dark bg-success" >
+            <tr class="bg-success">
+                <th>
+                    @Html.DisplayNameFor(model => model.DogId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nickName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Breed)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr class="bg-danger">
+            <td>
+                @Html.DisplayFor(modelItem => item.DogId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nickName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Breed)
+            </td>
+            <td>
+            </td>
+            <td class="bg-dark">
+                @Html.ActionLink("Edit", "EditDisplay", new { id = item.DogId })
+            </td>
+        </tr>
+}
+        </table>
+    </div>
+</body>

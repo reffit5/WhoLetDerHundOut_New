@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Who Let Der Hund Out</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            padding-top: 1px;
+            background-color: cornflowerblue;
+        }
+
+        .navbar a:link {
+            color: lawngreen;
+            border-right: outset;
+            border-bottom: outset;
+            border-color: cadetblue;
+            margin: 13px;
+            align-content: center;
+        }
+
+        .navbar a:visited {
+            color: gold;
+        }
+
+        .navbar a:hover {
+            color: lightgoldenrodyellow;
+            text-shadow: 1px 1px white;
+            transition: 1s;
+            text-decoration: wavy;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">Who Let Der Hund Out</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item nav-link">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="nav-item nav-link">@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="nav-item nav-link">@Html.ActionLink("Help", "Help", "Home")</li>
+                    <li class="nav-item nav-link">@Html.ActionLink("Breed", "Index", "Breed")</li>
+                    <li class="nav-item nav-link">@Html.ActionLink("Dog", "Index", "Dog")</li>
+                    <li class="nav-item nav-link">@Html.ActionLink("User", "Index", "User")</li>
+                    <li class="nav-item nav-link">@Html.ActionLink("Display", "Display", "Dog")</li>
+                    <li class="nav-item nav-link">@Html.ActionLink("Dog Display", "Display", "Dog")</li>
+                </ul>
+                <ul>
+                <li style="margin-left:200px;" class="nav-item nav-link">@Html.Partial("_LoginPartial")</li>
+           </ul>
+                    </div>
+            
+        </nav>
+        </header>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My School Project</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
