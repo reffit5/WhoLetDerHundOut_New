@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<WhoLetDerHundOut.Models.Dog>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
+@{
+    ViewBag.Title = "Dog";
+}
+
+@*<h2 class="text-info" style="vertical-align:top;">Index</h2>*@
+
+<p class="bg-dark">
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Dog", FormMethod.Get))
+{
+    <p>
+        Find by Name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search"/>
+    </p>
+}
+<table class="table row align-items-center justify-content-center table-striped table-hover">
+    <tr class="bg-info">
+        <th>
+            @Html.DisplayName("Dog's Id")
+        </th>
+        <th>
+            @Html.DisplayName("Owner's Id")
+        </th>
+        <th>
+            @Html.ActionLink("Dogs Name", "Index", new {sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Breed Name", "Index", new { sortOrder = ViewBag.BreedSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class=" bg-light">
+        <td>
+            @Html.DisplayFor(modelItem => item.DogId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nickName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Breed)
+        </td>
+        <td class="bg-dark">
+            @Html.ActionLink("Edit", "Edit", new { id=item.DogId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DogId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DogId })
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new {page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WhoLetDerHundOut.Models.Breed>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-danger">Index</h2>
+
+<p class="bg-dark">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table  row align-items-center justify-content-center table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BreedName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BreedName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td class="bg-warning">
+            @Html.ActionLink("Edit", "Edit", new { id=item.BreedId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BreedId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BreedId })
+        </td>
+    </tr>
+}
+
+</table>
