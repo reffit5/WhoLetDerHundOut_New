@@ -17,6 +17,7 @@ namespace WhoLetDerHundOut.Models
         public int NumberofDogs  { get; set; }
         [Required]
         public int DogId { get; set; }
+        public int junk { get; set; }
        
         public virtual ICollection<Dog> Dogs { get; set; }
     }
