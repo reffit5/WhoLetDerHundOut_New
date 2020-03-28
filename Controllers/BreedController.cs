@@ -11,6 +11,7 @@ using WhoLetDerHundOut.Models;
 
 namespace WhoLetDerHundOut.Controllers
 {
+    [Authorize]
     public class BreedController : Controller
     {
         private DogContext db = new DogContext();

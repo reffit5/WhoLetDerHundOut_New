@@ -11,6 +11,7 @@ using WhoLetDerHundOut.Models;
 
 namespace WhoLetDerHundOut.Controllers
 {
+    [AllowAnonymous]
     public class UserController : Controller
     {
         private DogContext db = new DogContext();

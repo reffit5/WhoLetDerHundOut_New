@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using WhoLetDerHundOut.DAL;
 using WhoLetDerHundOut.Models;
 using PagedList;
+using System.Data.Entity.Infrastructure;
 
 namespace WhoLetDerHundOut.Controllers
 {
+    [Authorize]
     public class DogController : Controller
     {
         private DogContext db = new DogContext();
@@ -126,7 +128,7 @@ namespace WhoLetDerHundOut.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (DataException)
+            catch (RetryLimitExceededException)
             {
                 ModelState.AddModelError("",
                    "Unable to save changes. Try again.");
@@ -166,7 +168,7 @@ namespace WhoLetDerHundOut.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                catch (DataException)
+                catch (RetryLimitExceededException)
                 {
                     ModelState.AddModelError("",
                    "Unable to save changes. Try again.");
@@ -207,7 +209,7 @@ namespace WhoLetDerHundOut.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch (DataException)
+            catch (RetryLimitExceededException)
             {
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
