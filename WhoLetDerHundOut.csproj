@@ -196,6 +196,10 @@
     <Compile Include="Migrations\202003281958255_InitialCreate.designer.cs">
       <DependentUpon>202003281958255_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004212002538_contextChangesupdate-database.cs" />
+    <Compile Include="Migrations\202004212002538_contextChangesupdate-database.designer.cs">
+      <DependentUpon>202004212002538_contextChangesupdate-database.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Breed.cs" />
@@ -462,6 +466,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003281958255_InitialCreate.resx">
       <DependentUpon>202003281958255_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004212002538_contextChangesupdate-database.resx">
+      <DependentUpon>202004212002538_contextChangesupdate-database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

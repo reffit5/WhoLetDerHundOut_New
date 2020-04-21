@@ -11,7 +11,7 @@ using WhoLetDerHundOut.Logging;
 
 namespace WhoLetDerHundOut.DAL
 {
-    public class SchoolInterceptorTransientErrors : DbCommandInterceptor
+    public class DogInterceptorTransientErrors : DbCommandInterceptor
     {
         private int _counter = 0;
         private ILogger _logger = new Logger();

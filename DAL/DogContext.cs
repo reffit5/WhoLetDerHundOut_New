@@ -9,7 +9,7 @@ namespace WhoLetDerHundOut.DAL
 {
     public class DogContext : DbContext
     {
-        public DogContext() :base("DogContext")
+        public DogContext() :base("DefaultConnection")
         {
 
         }
